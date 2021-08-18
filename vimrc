@@ -8,7 +8,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 call plug#end()
