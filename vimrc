@@ -8,15 +8,22 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'ledger/vim-ledger'
+Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
-Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " ==== Visual =================================================================
+
+" Gvim font:
+if has('gui_running')
+  set guifont=Ubuntu\ Mono\ Regular\ 13
+endif
 
 " Turn off visual bell:
 set visualbell
