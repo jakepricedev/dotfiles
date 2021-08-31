@@ -9,6 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
@@ -105,3 +106,4 @@ let g:vim_markdown_fenced_languages = ['bash=sh', 'json', 'python', 'css', 'html
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 2
+
