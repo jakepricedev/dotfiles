@@ -2,23 +2,6 @@
 # .bashrc
 # *****************************************************************************
 
-# ==== Default ================================================================
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
-
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
 # ==== Custom =================================================================
 
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -33,6 +16,16 @@ bind 'set enable-bracketed-paste on'
 # Set editor:
 export VISUAL=vim
 export EDITOR=$VISUAL
+
+# Add to MAN PATH:
+MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# Add GNU Tools to PATH:
+export PATH="/Users/jpr/Library/Python/3.9/bin:$PATH"
+export GNUBINS="$(find /opt/homebrew -type d -follow -name gnubin -print)";
+for bindir in ${GNUBINS[@]}; do
+  export PATH=$bindir:$PATH;
+done;
 
 # Bash history:
 HISTSIZE=100000
@@ -67,12 +60,10 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 
 # Custom info to show on session launch:
 HOSTNAME=$(hostname)
-DISTRO=$(grep "PRETTY_NAME" /etc/os-release \
-    | sed "s/PRETTY_NAME=\"//; s/\"//g")
 IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
 echo -e "
 Host:          $HOSTNAME
-OS:            $DISTRO $DISTRO_RELEASE
+OS:            $(sw_vers -productName) $(sw_vers -productVersion)
 Public IP:     $IP_PUBLIC
 Date:          $(date +%A\ %d\ %B\ %Y) (Week $(date +%V))
 "
