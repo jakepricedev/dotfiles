@@ -22,9 +22,13 @@ call plug#end()
 
 " ==== Visual =================================================================
 
-" Gvim font:
-if has('gui_running')
-  set guifont=Ubuntu\ Mono\ Regular\ 13
+" Status line:
+set laststatus=2
+set statusline=%f\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
+
+" MacVim Font:
+if has ('gui_macvim')
+    set guifont=UbuntuMono-Regular:h16
 endif
 
 " Turn off visual bell:
@@ -67,6 +71,12 @@ if (has("termguicolors"))
 endif
 
 " ==== Functionality ==========================================================
+
+" MacOS Clipboard:
+set clipboard=unnamed
+
+" Allow backspace over everything:
+set backspace=indent,eol,start
 
 " File encoding:
 set encoding=utf-8
