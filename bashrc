@@ -115,3 +115,5 @@ export PS1="\[$PURPLE\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
 
 # ++++ Other ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# fzf fuzzy completion:
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
