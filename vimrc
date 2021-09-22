@@ -96,6 +96,15 @@ set noswapfile
 " Incremental search.
 set incsearch
 
+" Autocomplete Brackets:
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 " ==== Remaps =================================================================
 
 " Switch buffers quickly:
