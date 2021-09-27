@@ -56,6 +56,7 @@ alias ls="ls --color=always --group-directories-first"
 alias rp="realpath"
 alias python="python3"
 alias my-sync="bash ~/my/files/code/bash-scripts/unison_my_sync.sh"
+alias logvim="mvim ~/my/files/documents/log/content"
 
 # Force tmux to assume terminal supports 256 colours:
 alias tmux='tmux -2'
@@ -95,3 +96,16 @@ export PS1="\[$PURPLE\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
 
 # fzf fuzzy completion:
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Override default fzf commands:
+export FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude ".git"'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_ALT_C_COMMAND=$FZF_DEFAULT_COMMAND
+
+_fzf_compgen_path() {
+  $FZF_DEFAULT_COMMAND "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
