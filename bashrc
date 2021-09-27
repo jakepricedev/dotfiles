@@ -33,33 +33,9 @@ export EDITOR=$VISUAL
 MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Update PATH to use Homebrew installed tools:
-HOMEBREW_PATH=$(brew --prefix)
-export PATH="/Users/$(whoami)/Library/Python/3.9/bin:\
-$HOMEBREW_PATH/var/homebrew/linked/libtool/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/coreutils/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/gnu-tar/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/grep/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/gnu-sed/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/gawk/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/make/libexec/gnubin:\
-$HOMEBREW_PATH/var/homebrew/linked/findutils/libexec/gnubin:\
-$HOMEBREW_PATH/opt/libtool/libexec/gnubin:\
-$HOMEBREW_PATH/opt/coreutils/libexec/gnubin:\
-$HOMEBREW_PATH/opt/gnu-tar/libexec/gnubin:\
-$HOMEBREW_PATH/opt/grep/libexec/gnubin:\
-$HOMEBREW_PATH/opt/gnu-sed/libexec/gnubin:\
-$HOMEBREW_PATH/opt/gsed/libexec/gnubin:\
-$HOMEBREW_PATH/opt/gawk/libexec/gnubin:\
-$HOMEBREW_PATH/opt/make/libexec/gnubin:\
-$HOMEBREW_PATH/opt/findutils/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/libtool/2.4.6_4/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/coreutils/8.32/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/gnu-tar/1.34/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/grep/3.7/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/gnu-sed/4.8/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/gawk/5.1.0/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/make/4.3/libexec/gnubin:\
-$HOMEBREW_PATH/Cellar/findutils/4.8.0_1/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 
 # Bash history:
 HISTSIZE=100000
@@ -78,6 +54,7 @@ alias rm='rm --verbose'
 alias ls="ls --color=always --group-directories-first"
 alias rp="realpath"
 alias python="python3"
+alias my-sync="bash ~/my/files/code/bash-scripts/unison_my_sync.sh"
 
 # Force tmux to assume terminal supports 256 colours:
 alias tmux='tmux -2'
