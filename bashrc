@@ -31,6 +31,7 @@ export EDITOR=$VISUAL
 
 # Add to MAN PATH:
 MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Update PATH to use Homebrew installed tools:
 export PATH="/opt/homebrew/bin:$PATH"
