@@ -118,3 +118,10 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 2
 
+" ==== Custom Functions =======================================================
+
+" Trigger Log todo type state:
+function! LogDone()
+    %s/types: todo-[a-z0-9]/types: done/g
+endfunction
+
