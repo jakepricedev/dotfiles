@@ -30,13 +30,13 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 
 # Add to MAN PATH:
-MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+MANPATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPAGER="sh -c 'col -bx | bat --theme ansi --language man --plain'"
 
 # Update PATH to use Homebrew installed tools:
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/homebrew/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
 
 # Bash history:
 HISTSIZE=100000
@@ -48,21 +48,20 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 
 # ++++ Aliases ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-alias src="source ~/.bashrc"
+alias bat="bat --theme ansi"
 alias cp='cp --verbose'
-alias mv='mv --verbose'
-alias rm='rm --verbose'
-alias ls="ls --color=always --group-directories-first"
-alias rp="realpath"
-alias python="python3"
-alias my-sync="bash ~/my/files/code/bash-scripts/unison_my_sync.sh"
+alias edit="tmux split-window -h vim $@"
 alias logvim="mvim ~/my/files/documents/log/content"
+alias ls="ls --color=always --group-directories-first"
+alias mv='mv --verbose'
+alias my-sync="bash ~/my/files/code/bash-scripts/unison_my_sync.sh"
+alias python="python3"
+alias rm='rm --verbose'
+alias rp="realpath"
+alias src="source ~/.bashrc"
 
 # Force tmux to assume terminal supports 256 colours:
 alias tmux='tmux -2'
-
-# Open file in vim, in a tmux split:
-alias edit="tmux split-window -h vim $@"
 
 # Generate password:
 alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
