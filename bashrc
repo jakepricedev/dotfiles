@@ -2,6 +2,20 @@
 # .bashrc
 # *****************************************************************************
 
+# ==== Default ================================================================
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
 # ==== Custom =================================================================
 
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -72,10 +86,16 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 
 # Custom info to show on session launch:
 HOSTNAME=$(hostname)
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    DISTRO=$(grep "PRETTY_NAME" /etc/os-release \
+        | sed "s/PRETTY_NAME=\"//; s/\"//g")
+elif [[ "$OSTYPE" == "darwin" ]]; then
+    DISTRO=$(sw_vers -productName) $(sw_vers -productVersion)
+fi
 IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
 echo -e "
 Host:          $HOSTNAME
-OS:            $(sw_vers -productName) $(sw_vers -productVersion)
+OS:            $DISTRO
 Public IP:     $IP_PUBLIC
 Date:          $(date +%A\ %d\ %B\ %Y) (Week $(date +%V))
 "
