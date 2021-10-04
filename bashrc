@@ -87,15 +87,18 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 # Custom info to show on session launch:
 HOSTNAME=$(hostname)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    DISTRO=$(grep "PRETTY_NAME" /etc/os-release \
-        | sed "s/PRETTY_NAME=\"//; s/\"//g")
-elif [[ "$OSTYPE" == "darwin" ]]; then
-    DISTRO=$(sw_vers -productName) $(sw_vers -productVersion)
+    DISTRO=$(grep "^NAME" /etc/os-release \
+        | sed "s/NAME=\"//; s/\"//g")
+    DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
+        | sed "s/VERSION_ID=//g")
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    DISTRO=$(sw_vers -productName)
+    DISTRO_VERSION=$(sw_vers -productVersion)
 fi
 IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
 echo -e "
 Host:          $HOSTNAME
-OS:            $DISTRO
+OS:            $DISTRO $DISTRO_VERSION
 Public IP:     $IP_PUBLIC
 Date:          $(date +%A\ %d\ %B\ %Y) (Week $(date +%V))
 "
