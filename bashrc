@@ -47,10 +47,15 @@ export EDITOR=$VISUAL
 MANPATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPAGER="sh -c 'col -bx | bat --theme ansi --language man --plain'"
 
-# Update PATH to use Homebrew installed tools:
-export PATH="$HOMEBREW_PREFIX/opt/homebrew/bin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Update PATH to use Homebrew installed tools:
+    export PATH="$HOMEBREW_PREFIX/opt/homebrew/bin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+
+    # Update PATH to include Python packages:
+    export PATH="/Users/$USER/Library/Python/3.9/bin:$PATH"
+fi
 
 # Bash history:
 HISTSIZE=100000
