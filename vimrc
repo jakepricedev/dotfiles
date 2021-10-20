@@ -26,11 +26,6 @@ call plug#end()
 set laststatus=2
 set statusline=%f\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
 
-" MacVim Font:
-if has ('gui_macvim')
-    set guifont=UbuntuMono-Regular:h16
-endif
-
 " Turn off visual bell:
 set visualbell
 set t_vb=
@@ -65,15 +60,10 @@ colorscheme challenger_deep
 " Make default theme readable on dark terminals:
 set background=dark
 
-" True colours:
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " ==== Functionality ==========================================================
 
-" MacOS Clipboard:
-set clipboard=unnamed
+" Set clipboard as system clipboard:
+set clipboard=unnamedplus
 
 " Allow backspace over everything:
 set backspace=indent,eol,start
