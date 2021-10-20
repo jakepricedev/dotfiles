@@ -1,7 +1,5 @@
 # Bash Dotfiles & Configuration Files
 
-These files are _primarily used on MacOS_. As such there will be some minor differences that need to be accounted for if used on Linux.
-
 ## Install Instructions
 
 If you're bothered, then remove/backup your existing dotfiles.
