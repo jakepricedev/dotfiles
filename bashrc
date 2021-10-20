@@ -9,53 +9,20 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
-
 # ==== Custom =================================================================
 
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# Enable Bash completion:
-if type brew &>/dev/null; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-  else
-    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-    done
-  fi
-fi
 
 # Disable XON/XOFF Flow Control:
 # So you can remap Ctrl + S and Ctrl + Q
 stty -ixon
 
-# Bracketed paste https://serverfault.com/a/1021968:
+# Bracketed paste:
 bind 'set enable-bracketed-paste on'
 
 # Set editor:
-export VISUAL=vim
+export VISUAL=vimx
 export EDITOR=$VISUAL
-
-# Add to MAN PATH:
-MANPATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
-export MANPAGER="sh -c 'col -bx | bat --theme ansi --language man --plain'"
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Update PATH to use Homebrew installed tools:
-    export PATH="$HOMEBREW_PREFIX/opt/homebrew/bin:$PATH"
-    export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
-    export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
-
-    # Update PATH to include Python packages:
-    export PATH="/Users/$USER/Library/Python/3.9/bin:$PATH"
-fi
 
 # Bash history:
 HISTSIZE=100000
@@ -69,8 +36,7 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 
 alias bat="bat --theme ansi"
 alias cp='cp --verbose'
-alias edit="tmux split-window -h vim $@"
-alias logvim="mvim ~/my/files/documents/log/content"
+alias edit="tmux split-window -h $EDITOR $@"
 alias ls="ls --color=always --group-directories-first"
 alias mv='mv --verbose'
 alias my-sync="bash ~/my/files/code/bash-scripts/unison_my_sync.sh"
@@ -78,9 +44,7 @@ alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
 alias src="source ~/.bashrc"
-
-# Force tmux to assume terminal supports 256 colours:
-alias tmux='tmux -2'
+alias vim=$EDITOR
 
 # Generate password:
 alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
@@ -91,15 +55,10 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 
 # Custom info to show on session launch:
 HOSTNAME=$(hostname)
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    DISTRO=$(grep "^NAME" /etc/os-release \
-        | sed "s/NAME=\"//; s/\"//g")
-    DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
-        | sed "s/VERSION_ID=//g")
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    DISTRO=$(sw_vers -productName)
-    DISTRO_VERSION=$(sw_vers -productVersion)
-fi
+DISTRO=$(grep "^NAME" /etc/os-release \
+    | sed "s/NAME=//")
+DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
+    | sed "s/VERSION_ID=//g")
 IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
 echo -e "
 Host:          $HOSTNAME
@@ -121,6 +80,8 @@ export PS1="\[$PURPLE\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
 
 # ++++ Other ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# :::: fzf Stuff ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 # fzf fuzzy completion:
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -136,3 +97,4 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
+
