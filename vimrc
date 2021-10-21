@@ -22,6 +22,11 @@ call plug#end()
 
 " ==== Visual =================================================================
 
+" MacVim Font:
+if has ('gui_macvim')
+    set guifont=UbuntuMono-Regular:h16
+endif
+
 " Status line:
 set laststatus=2
 set statusline=%f\ %h%w%m%r%=%-14.(%l,%c%V%)\ %P
