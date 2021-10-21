@@ -63,7 +63,11 @@ set background=dark
 " ==== Functionality ==========================================================
 
 " Set clipboard as system clipboard:
-set clipboard=unnamedplus
+if has("linux")
+    set clipboard=unnamedplus
+elseif has("mac")
+    set clipboard=unnamed
+end
 
 " Allow backspace over everything:
 set backspace=indent,eol,start

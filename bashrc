@@ -20,9 +20,39 @@ stty -ixon
 # Bracketed paste:
 bind 'set enable-bracketed-paste on'
 
+# Homebrew specifics:
+if [[ "$OSTYPE" == "darwin"* ]]; then
+
+    HOMEBREW_PREFIX="$(brew --prefix)"
+    
+    # Enable bash completion:
+    if type brew &>/dev/null; then
+      if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+      else
+        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+          [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+        done
+      fi
+    fi
+
+    # Update PATH to use Homebrew installed tools:
+    export PATH="$HOMEBREW_PREFIX/opt/homebrew/bin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+
+    # Update PATH to include Python packages:
+    export PATH="/Users/$USER/Library/Python/3.9/bin:$PATH"
+fi
+
 # Set editor:
-export VISUAL=vimx
-export EDITOR=$VISUAL
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    export VISUAL=vimx
+    export EDITOR=$VISUAL
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    export VISUAL=vim
+    export EDITOR=$VISUAL
+fi
 
 # Bash history:
 HISTSIZE=100000
@@ -55,10 +85,16 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 
 # Custom info to show on session launch:
 HOSTNAME=$(hostname)
-DISTRO=$(grep "^NAME" /etc/os-release \
-    | sed "s/NAME=//")
-DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
-    | sed "s/VERSION_ID=//g")
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    DISTRO=$(grep "^NAME" /etc/os-release \
+        | sed "s/NAME=//")
+    DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
+        | sed "s/VERSION_ID=//g")
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    DISTRO=$(sw_vers -productName)
+    DISTRO_VERSION=$(sw_vers -productVersion)
+fi
+
 IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
 echo -e "
 Host:          $HOSTNAME
