@@ -7,6 +7,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'chrisbra/csv.vim'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -14,7 +15,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'ledger/vim-ledger'
-Plug 'mechatroner/rainbow_csv'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
