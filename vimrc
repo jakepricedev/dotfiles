@@ -22,6 +22,15 @@ call plug#end()
 
 " ==== Visual =================================================================
 
+" Disable menu bar in GVim:
+set guioptions-=m
+
+" Disable toolbar in GVim:
+set guioptions-=T
+
+" GVim Font:
+set guifont=Ubuntu\ Mono\ 13
+
 " MacVim Font:
 if has ('gui_macvim')
     set guifont=UbuntuMono-Regular:h16
