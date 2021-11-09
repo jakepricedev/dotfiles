@@ -52,6 +52,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export VISUAL=vim
     export EDITOR=$VISUAL
+elif [[ "$OSTYPE" == "linux-android" ]]; then
+    export VISUAL=vim
+    export EDITOR=$VISUAL
 fi
 
 # Bash history:
@@ -69,11 +72,11 @@ alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
 alias ls="ls --color=always --group-directories-first"
 alias mv='mv --verbose'
-alias my-sync="bash ~/my/files/code/bash-scripts/unison_my_sync.sh"
+alias my-sync="bash $HOME/my/files/code/bash-scripts/unison_my_sync.sh"
 alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
-alias src="source ~/.bashrc"
+alias src="source $HOME/.bashrc"
 alias vim=$EDITOR
 
 # Generate password:
@@ -83,54 +86,13 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 
 # ++++ Session "Intro" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Custom info to show on session launch:
-HOSTNAME=$(hostname)
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    DISTRO=$(grep "^NAME" /etc/os-release \
-        | sed "s/NAME=//")
-    DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
-        | sed "s/VERSION_ID=//g")
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    DISTRO=$(sw_vers -productName)
-    DISTRO_VERSION=$(sw_vers -productVersion)
-fi
-
-IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
-echo -e "
-Host:          $HOSTNAME
-OS:            $DISTRO $DISTRO_VERSION
-Public IP:     $IP_PUBLIC
-Date:          $(date +%A\ %d\ %B\ %Y) (Week $(date +%V))
-"
+source $HOME/my/files/code/dotfiles/supplementary/session_intro.sh
 
 # ++++ Prompt +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Get current git branch when applicable:
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-# Set prompt:
-PURPLE="\e[38;5;105m"
-export PS1="\[$PURPLE\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+source $HOME/my/files/code/dotfiles/supplementary/prompt.sh
 
 # ++++ Other ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# :::: fzf Stuff ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-# fzf fuzzy completion:
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Override default fzf commands:
-export FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude ".git"'
-export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_ALT_C_COMMAND=$FZF_DEFAULT_COMMAND
-
-_fzf_compgen_path() {
-  $FZF_DEFAULT_COMMAND "$1"
-}
-
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
+source $HOME/my/files/code/dotfiles/supplementary/fzf.sh
 
