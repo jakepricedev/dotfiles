@@ -4,7 +4,7 @@
 HOSTNAME=$(hostname)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     DISTRO=$(grep "^NAME" /etc/os-release \
-        | sed "s/NAME=//")
+        | sed "s/NAME=//; s/\"//g")
     DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
         | sed "s/VERSION_ID=//g")
 elif [[ "$OSTYPE" == "darwin"* ]]; then
