@@ -107,15 +107,15 @@ set incsearch
 " ==== Remaps =================================================================
 
 " Switch buffers quickly:
-:nnoremap <C-N> :bn<CR>
-:nnoremap <C-P> :bp<CR>
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
 
 " List buffers with fzf:
-:nnoremap <C-K> :Buffers<CR>
+nnoremap <C-K> :Buffers<CR>
 
 " Search for files with fzf:
 " Make sure `stty -ixon` is included in `.bashrc` to reclaim Ctrl S.
-:noremap <C-S> :Files<CR>
+noremap <C-S> :Files<CR>
 
 " ==== Extension Settings =====================================================
 
