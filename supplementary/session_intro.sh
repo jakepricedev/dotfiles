@@ -16,8 +16,7 @@ elif [[ "$OSTYPE" == "linux-android" ]]; then
 fi
 
 IP_PUBLIC=$(dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short)
-echo -e "
-Host:          $HOSTNAME
+echo -e "Host:          $HOSTNAME
 OS:            $DISTRO $DISTRO_VERSION
 Public IP:     $IP_PUBLIC
 Date:          $(date +%A\ %d\ %B\ %Y) (Week $(date +%V))
