@@ -11,6 +11,10 @@ fi
 
 # ==== Custom =================================================================
 
+# ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+source $HOME/.code_root
+
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Disable XON/XOFF Flow Control:
@@ -72,7 +76,7 @@ alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
 alias ls="ls --color=always --group-directories-first"
 alias mv='mv --verbose'
-alias my-sync="bash $HOME/my/files/code/bash-scripts/unison_my_sync.sh"
+alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync.sh"
 alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
@@ -86,13 +90,13 @@ alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
 
 # ++++ Session "Intro" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-source $HOME/my/files/code/dotfiles/supplementary/session_intro.sh
+source $CODE_ROOT/dotfiles/supplementary/session_intro.sh
 
 # ++++ Prompt +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-source $HOME/my/files/code/dotfiles/supplementary/prompt.sh
+source $CODE_ROOT/dotfiles/supplementary/prompt.sh
 
 # ++++ Other ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-source $HOME/my/files/code/dotfiles/supplementary/fzf.sh
+source $CODE_ROOT/dotfiles/supplementary/fzf.sh
 
