@@ -5,6 +5,8 @@
 # fzf fuzzy completion:
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 elif [[ "$OSTYPE" == "linux-android" ]]; then
 	source $PREFIX/share/fzf/completion.bash
 fi
