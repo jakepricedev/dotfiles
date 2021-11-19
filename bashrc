@@ -19,7 +19,7 @@ source $HOME/.code_root
 
 # Disable XON/XOFF Flow Control:
 # So you can remap Ctrl + S and Ctrl + Q
-stty -ixon
+[[ $- == *i* ]] && stty -ixon
 
 # Bracketed paste:
 bind 'set enable-bracketed-paste on'
