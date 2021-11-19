@@ -22,7 +22,7 @@ source $HOME/.code_root
 [[ $- == *i* ]] && stty -ixon
 
 # Bracketed paste:
-bind 'set enable-bracketed-paste on'
+[[ $- == *i* ]] && bind 'set enable-bracketed-paste on'
 
 # Homebrew specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
