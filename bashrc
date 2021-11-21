@@ -24,6 +24,9 @@ source $HOME/.code_root
 # Bracketed paste:
 [[ $- == *i* ]] && bind 'set enable-bracketed-paste on'
 
+# Only exit the shell on the 10th Ctrl-d:
+set -o ignoreeof
+
 # Homebrew specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
