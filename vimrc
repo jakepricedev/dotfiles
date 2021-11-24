@@ -6,7 +6,6 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'chrisbra/csv.vim'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
@@ -29,11 +28,11 @@ set guioptions-=m
 set guioptions-=T
 
 " GVim Font:
-set guifont=Ubuntu\ Mono\ 13
+set guifont=Inconsolata\ 14
 
 " MacVim Font:
 if has ('gui_macvim')
-    set guifont=UbuntuMono-Regular:h16
+    set guifont=Inconsolata:h16
 endif
 
 " Status line:
@@ -68,8 +67,12 @@ set shiftwidth=4
 
 " ==== Colour =================================================================
 
-" Enable Challenger Deep Theme:
-colorscheme challenger_deep
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
+
+" Set theme:
+colorscheme tomorrow_night_blue
 
 " Make default theme readable on dark terminals:
 set background=dark
