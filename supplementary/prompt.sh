@@ -6,6 +6,6 @@ parse_git_branch() {
 }
 
 # Set prompt:
-PURPLE="\e[38;5;105m"
-export PS1="\[$PURPLE\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+COLOUR="\e[1m\e[34m"
+export PS1="\[$COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
 
