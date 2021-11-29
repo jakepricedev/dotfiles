@@ -4,7 +4,7 @@
 
 # fzf fuzzy completion:
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+	[ -f /usr/share/fzf/shell/key-bindings.bash ] && source /usr/share/fzf/shell/key-bindings.bash
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 elif [[ "$OSTYPE" == "linux-android" ]]; then
