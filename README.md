@@ -1,4 +1,4 @@
-# Bash Dotfiles
+# Dotfiles
 
 ## Install Instructions
 
