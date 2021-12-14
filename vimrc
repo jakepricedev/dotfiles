@@ -104,8 +104,11 @@ set nobackup
 set nowb
 set noswapfile
 
-" Incremental search.
+" Incremental search:
 set incsearch
+
+" Stop auto-indenting comments:
+set indentkeys-=0#
 
 " ==== Remaps =================================================================
 
