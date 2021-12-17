@@ -10,7 +10,7 @@ mv $HOME/.vimrc $HOME/.vimrc_old
 mv $HOME/.tmux.conf $HOME/.tmux.conf.old
 ```
 
-Create `~/.code_root` to specify the directory path to which you store your code.
+Create `~/.code_root` to specify the directory path to which you store your code. Make sure you `export` the variable otherwise tmux won't be able to pick it up.
 
 ```sh
 echo "export CODE_ROOT=<filepath>" > ~/.code_root
