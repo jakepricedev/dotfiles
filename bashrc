@@ -27,8 +27,11 @@ source $HOME/.code_root
 # Only exit the shell on the 10th Ctrl-d:
 set -o ignoreeof
 
-# Homebrew specifics:
+# MacOS specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
+
+    export PATH=/usr/local/bin:$PATH
+    export PATH="/opt/homebrew/bin:$PATH"
 
     HOMEBREW_PREFIX="$(brew --prefix)"
     
@@ -44,7 +47,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     fi
 
     # Update PATH to use Homebrew installed tools:
-    export PATH="$HOMEBREW_PREFIX/opt/homebrew/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
 
