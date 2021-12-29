@@ -28,11 +28,11 @@ set guioptions-=m
 set guioptions-=T
 
 " GVim Font:
-set guifont=Inconsolata\ 14
+set guifont=Ubuntu\ Mono\ 13
 
 " MacVim Font:
 if has ('gui_macvim')
-    set guifont=Inconsolata:h16
+    set guifont=UbuntuMono-Regular:h18
 endif
 
 " Status line:
