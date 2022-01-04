@@ -32,7 +32,7 @@ set guifont=Ubuntu\ Mono\ 13
 
 " MacVim Font:
 if has ('gui_macvim')
-    set guifont=UbuntuMono-Regular:h18
+    set guifont=UbuntuMono-Regular:h16
 endif
 
 " Status line:
