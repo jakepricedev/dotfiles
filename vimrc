@@ -28,7 +28,9 @@ set guioptions-=m
 set guioptions-=T
 
 " GVim Font:
-set guifont=Ubuntu\ Mono\ 13
+if has ('gui')
+    set guifont=Ubuntu\ Mono\ 15
+endif
 
 " MacVim Font:
 if has ('gui_macvim')
