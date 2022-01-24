@@ -125,7 +125,7 @@ nnoremap <C-K> :Buffers<CR>
 " Make sure `stty -ixon` is included in `.bashrc` to reclaim Ctrl S.
 noremap <C-S> :Files<CR>
 
-# Common Copy/Paste Shortcuts in GuiVim:
+" Common Copy/Paste Shortcuts in GuiVim:
 if has ('gui')
     vmap <C-S-c> "+yi
     vmap <C-S-v> c<ESC>"+p
