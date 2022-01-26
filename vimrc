@@ -144,12 +144,18 @@ let g:vim_markdown_auto_insert_bullets = 1
 
 " goyo.vim:
 let goyo_width = 80
-let goyo_heigh = "100%"
+let goyo_height = "100%"
 
-" ==== Custom Functions =======================================================
+" ==== Custom Commands & Functions ============================================
 
 " Trigger Log todo type state:
 function! LogDone()
     %s/types: todo-[a-z0-9]/types: done/g
 endfunction
+
+" Open a vertical split with a list of all log entries and their titles to
+" quickly gf on filenames to open them:
+command! Log vnew |
+    \ :setlocal nobuflisted buftype=nofile bufhidden=delete noswapfile |
+    \ r ! grep "title:" $LOG_ROOT/content/*.md | sed 's/:title:/ /' | sort
 
