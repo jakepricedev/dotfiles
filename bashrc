@@ -84,6 +84,7 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 alias bat="bat --theme ansi"
 alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
+alias log="cd $DOCS_ROOT/log/content"
 alias ls="ls --color=always --group-directories-first"
 alias mv='mv --verbose'
 alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync.sh"
