@@ -32,8 +32,10 @@ source $HOME/.docs_root
 # Only exit the shell on the 10th Ctrl-d:
 set -o ignoreeof
 
-# Disable Caps Lock:
-setxkbmap -option ctrl:nocaps
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Disable Caps Lock:
+    setxkbmap -option ctrl:nocaps
+fi
 
 # MacOS specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
