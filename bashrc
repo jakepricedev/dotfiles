@@ -59,6 +59,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Update PATH to use Homebrew installed tools:
     export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
 
     # Update PATH to include Python packages:
     export PATH="/Users/$USER/Library/Python/3.9/bin:$PATH"
