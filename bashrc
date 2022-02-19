@@ -92,8 +92,8 @@ alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
 alias log="cd $DOCS_ROOT/log/content"
 alias ls="ls --color=always --group-directories-first"
-alias mon-lid-down="bash $CODE_ROOT/bash-scripts/monitors_arrange_lid_down.sh"
-alias mon-lid-up="bash $CODE_ROOT/bash-scripts/monitors_arrange_lid_up.sh"
+alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
+alias malson="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_on.sh"
 alias mv='mv --verbose'
 alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync.sh"
 alias python="python3"
