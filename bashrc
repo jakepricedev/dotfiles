@@ -11,6 +11,10 @@ fi
 
 # ==== Custom =================================================================
 
+# ++++ What OS/Distro? ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^ID" | sed --regexp-extended 's/ID=//')
+
 # ++++ Path +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 export PATH=$HOME/.local/bin:$PATH
@@ -66,7 +70,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Set editor:
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$DISTRO_IS" == "debian" ]]; then
+    export VISUAL=vim
+    export EDITOR=$VISUAL
+elif [[ "$DISTRO_IS" == "fedora" ]]; then
     export VISUAL=vimx
     export EDITOR=$VISUAL
 elif [[ "$OSTYPE" == "darwin"* ]]; then
