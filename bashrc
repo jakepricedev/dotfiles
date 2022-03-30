@@ -101,10 +101,16 @@ alias edit="tmux split-window -h $EDITOR $@"
 alias ll="ls -l"
 alias log="cd $DOCS_ROOT/log/content"
 alias ls="ls --color=always --group-directories-first"
-alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
-alias malson="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_on.sh"
+if [[ "$HOSTNAME" == "elitebook" ]]; then
+    alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
+    alias malson="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_on.sh"
+fi
 alias mv='mv --verbose'
-alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync.sh"
+if [[ "$HOSTNAME" == "elitebook" ]]; then
+    alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_elitebook.sh"
+elif [[ "$HOSTNAME" == "rpi-01" ]]; then
+    alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_rpi.sh"
+fi
 alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
