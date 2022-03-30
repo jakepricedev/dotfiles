@@ -3,10 +3,10 @@
 # Custom info to show on session launch:
 HOSTNAME=$(hostname)
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    DISTRO=$(grep "^NAME" /etc/os-release \
+    DISTRO=$(grep "^NAME" /etc/*-release \
         | sed "s/NAME=//; s/\"//g")
-    DISTRO_VERSION=$(grep "VERSION_ID" /etc/os-release \
-        | sed "s/VERSION_ID=//g")
+    DISTRO_VERSION=$(grep "VERSION_ID" /etc/*-release \
+        | sed "s/^VERSION_ID=//; s/\"//g")
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     DISTRO=$(sw_vers -productName)
     DISTRO_VERSION=$(sw_vers -productVersion)
