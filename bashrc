@@ -13,7 +13,9 @@ fi
 
 # ++++ What OS/Distro? ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^ID" | sed --regexp-extended 's/ID=//')
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^ID" | sed --regexp-extended 's/ID=//')
+fi
 
 # ++++ Path +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
