@@ -6,6 +6,18 @@ parse_git_branch() {
 }
 
 # Set prompt:
-COLOUR="\e[1m\e[34m"
-export PS1="\[$COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+FEDORA_COLOUR="\e[38;5;75m"
+DEBIAN_COLOUR="\e[38;5;198m"
+MACOS_COLOUR="\e[1m\e[93m"
+TERMUX_COLOUR="\e[1m\e[92m"
+
+if [[ "$DISTRO_IS" == "fedora" ]]; then
+    export PS1="\[$FEDORA_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+elif [[ "$DISTRO_IS" == "debian" ]]; then
+    export PS1="\[$DEBIAN_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    export PS1="\[$MACOS_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+elif [[ "$OSTYPE" == "linux-android" ]]; then
+    export PS1="\[$TERMUX_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n"
+fi
 
