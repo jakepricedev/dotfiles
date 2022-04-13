@@ -105,6 +105,8 @@ fi
 alias mv='mv --verbose'
 if [[ "$HOSTNAME" == "elitebook" ]]; then
     alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_elitebook.sh"
+elif [[ "$HOSTNAME" == "xps" ]]; then
+    alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_xps.sh"
 elif [[ "$HOSTNAME" == "rpi-01" ]]; then
     alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_rpi.sh"
 fi
