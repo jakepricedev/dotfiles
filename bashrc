@@ -110,6 +110,7 @@ elif [[ "$HOSTNAME" == "xps" ]]; then
 elif [[ "$HOSTNAME" == "rpi-01" ]]; then
     alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_rpi.sh"
 fi
+alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
