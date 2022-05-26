@@ -104,7 +104,7 @@ if [[ "$HOSTNAME" == "elitebook" ]]; then
 fi
 alias mv='mv --verbose'
 if [[ "$HOSTNAME" == "elitebook" ]]; then
-    alias my-sync="/usr/local/bin/unison -batch elitebook"
+    alias my-sync="/usr/local/bin/unison elitebook"
 elif [[ "$HOSTNAME" == "rpi-01" ]]; then
     alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_rpi.sh"
 fi
