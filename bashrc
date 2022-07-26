@@ -41,6 +41,8 @@ set -o ignoreeof
 # MacOS specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
     export PATH=/usr/local/bin:$PATH
     export PATH="/opt/homebrew/bin:$PATH"
 
@@ -95,6 +97,7 @@ alias bat="bat --theme ansi"
 alias cameras='bash $CODE_ROOT/bash-scripts/camera_mosaic.sh'
 alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
+alias inbox="vim $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
 alias log="cd $DOCS_ROOT/log/content"
 alias ls="ls --color=always --group-directories-first"
