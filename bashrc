@@ -76,8 +76,8 @@ elif [[ "$DISTRO_IS" == "fedora" ]]; then
     export VISUAL=vimx
     export EDITOR=$VISUAL
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export VISUAL=vim
-    export EDITOR=$VISUAL
+    export VISUAL=mvim
+    export EDITOR=vim
 elif [[ "$OSTYPE" == "linux-android" ]]; then
     export VISUAL=vim
     export EDITOR=$VISUAL
@@ -97,7 +97,7 @@ alias bat="bat --theme ansi"
 alias cameras='bash $CODE_ROOT/bash-scripts/camera_mosaic.sh'
 alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
-alias inbox="vim $DOCS_ROOT/log/content/inbox.md +$"
+alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
 alias log="cd $DOCS_ROOT/log/content"
 alias ls="ls --color=always --group-directories-first"
