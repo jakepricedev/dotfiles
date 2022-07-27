@@ -99,7 +99,7 @@ alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
-alias log="cd $DOCS_ROOT/log/content"
+alias log="cd $DOCS_ROOT/log/content && $VISUAL ."
 alias ls="ls --color=always --group-directories-first"
 if [[ "$HOSTNAME" == "elitebook" ]]; then
     alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
