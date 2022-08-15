@@ -137,4 +137,5 @@ source $CODE_ROOT/dotfiles/supplementary/prompt.sh
 # ++++ Other ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 source $CODE_ROOT/dotfiles/supplementary/fzf.sh
+source $CODE_ROOT/dotfiles/supplementary/azure_cli_aliases.sh
 
