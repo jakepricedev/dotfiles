@@ -122,9 +122,7 @@ alias tf="terraform"
 alias vim=$EDITOR
 
 # Generate password:
-alias genpwd="tr --complement --delete '[:alnum:]' < /dev/urandom \
-    | fold --width=64 \
-    | head --lines=1"
+alias genpwd="tr --delete --complement 'A-Za-z0-9' </dev/urandom | head --bytes 64; echo"
 
 # ++++ Session "Intro" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
