@@ -116,6 +116,7 @@ alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
 alias src="source $HOME/.bashrc"
+alias tf="terraform"
 alias vim=$EDITOR
 
 # Generate password:
