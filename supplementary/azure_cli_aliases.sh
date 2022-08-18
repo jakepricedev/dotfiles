@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Azure Resource Groups:
-alias agl="az group list | jq '.[]|{name,id,location}'"
+alias az-group-list="az group list --output table "
+alias az-resource-list="az resource list --output table --resource-group "
 
 # Azure Subscriptions:
-alias asl="az account list | jq '.[]|{name,id}'"
+alias az-subscription-list="az account list --output table "
 
