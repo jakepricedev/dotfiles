@@ -124,6 +124,8 @@ nnoremap <C-K> :Buffers<CR>
 " Search for files with fzf:
 " Make sure `stty -ixon` is included in `.bashrc` to reclaim Ctrl S.
 noremap <C-S> :Files<CR>
+" Search for lines in buffers with fzf:
+noremap <C-F> :Lines<CR>
 
 " Common Copy/Paste Shortcuts in GuiVim:
 if has ('gui')
