@@ -45,6 +45,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     export PATH=/usr/local/bin:$PATH
     export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+    export PATH="/Users/jprice/Library/Python/3.10/bin:$PATH"
 
     HOMEBREW_PREFIX="$(brew --prefix)"
     
@@ -76,8 +78,8 @@ elif [[ "$DISTRO_IS" == "fedora" ]]; then
     export VISUAL=vimx
     export EDITOR=$VISUAL
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export VISUAL=mvim
-    export EDITOR=vim
+    export VISUAL="vim"
+    export EDITOR=$VISUAL
 elif [[ "$OSTYPE" == "linux-android" ]]; then
     export VISUAL=vim
     export EDITOR=$VISUAL
@@ -100,6 +102,7 @@ alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
 alias log="cd $DOCS_ROOT/log/content && $VISUAL ."
+alias log-cli="python3 $CODE_ROOT/log-cli/main.py"
 alias ls="ls --color=always --group-directories-first"
 if [[ "$HOSTNAME" == "elitebook" ]]; then
     alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
@@ -115,6 +118,7 @@ elif [[ "$HOSTNAME" == "rpi-01" ]]; then
 fi
 alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
+alias refresh-hosts="ssh-keygen -R 10.0.1.11 && ssh-keygen -R 10.0.1.12 && ssh-keygen -R 10.0.2.21 && ssh-keygen -R 10.0.2.31"
 alias rm='rm --verbose'
 alias rp="realpath"
 alias src="source $HOME/.bashrc"
@@ -136,4 +140,4 @@ source $CODE_ROOT/dotfiles/supplementary/prompt.sh
 
 source $CODE_ROOT/dotfiles/supplementary/fzf.sh
 source $CODE_ROOT/dotfiles/supplementary/azure_cli_aliases.sh
-
+source $CODE_ROOT/dotfiles/supplementary/github_cli_aliases.sh
