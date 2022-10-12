@@ -98,6 +98,7 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 alias bat="bat --theme ansi"
 alias cameras='bash $CODE_ROOT/bash-scripts/camera_mosaic.sh'
 alias cp='cp --verbose'
+alias code="cd $CODE_ROOT"
 alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
