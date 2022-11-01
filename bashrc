@@ -38,6 +38,11 @@ source $HOME/.docs_root
 # Only exit the shell on the 10th Ctrl-d:
 set -o ignoreeof
 
+# Adjust autocompletion behavior:
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+bind '"\e[Z":menu-complete-backward' # shift-tab
+
 # MacOS specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
@@ -142,3 +147,4 @@ source $CODE_ROOT/dotfiles/supplementary/prompt.sh
 source $CODE_ROOT/dotfiles/supplementary/fzf.sh
 source $CODE_ROOT/dotfiles/supplementary/azure_cli_aliases.sh
 source $CODE_ROOT/dotfiles/supplementary/github_cli_aliases.sh
+
