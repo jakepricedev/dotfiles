@@ -107,7 +107,6 @@ alias code="cd $CODE_ROOT"
 alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
-alias log="python3 $CODE_ROOT/log-cli/main.py"
 alias ls="ls --color=always --group-directories-first"
 if [[ "$HOSTNAME" == "elitebook" ]]; then
     alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
@@ -146,4 +145,5 @@ source $CODE_ROOT/dotfiles/supplementary/prompt.sh
 source $CODE_ROOT/dotfiles/supplementary/fzf.sh
 source $CODE_ROOT/dotfiles/supplementary/azure_cli_aliases.sh
 source $CODE_ROOT/dotfiles/supplementary/github_cli_aliases.sh
+source $CODE_ROOT/log-cli/.log-cli-complete.bash
 
