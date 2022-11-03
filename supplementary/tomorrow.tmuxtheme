@@ -13,7 +13,7 @@
 #   #8959a8 Purple
 
 ## set status bar
-set -g status-style bg=default
+set -g status-style bg="#cccccc"
 setw -g window-status-current-style bg="#efefef"
 setw -g window-status-current-style fg="#4271ae"
 
