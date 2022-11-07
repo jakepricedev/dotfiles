@@ -1,0 +1,34 @@
+# ==== Panes ==================================================================
+
+# Active pane border:
+set -g pane-active-border-style fg=#304ffe
+
+# Non-active pane border:
+set -g pane-border-style fg=#c5cae9,bg=#ffffff
+
+# ==== Status bar =============================================================
+
+# ++++ Main Bar +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Status bar colour:
+set -g status-style bg=#304ffe
+
+# Left side of status bar:
+set -g status-left-style fg=#ffffff,bg=#1a237e
+set -g status-left "#[bold] S#S "
+
+# Right side of status bar:
+set -g status-right-style fg=#ffffff,bg=#1a237e
+set -g status-right "#[bold] W#I P#P #H "
+
+# ++++ Tabs +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# non-active window tab:
+set -g window-status-format "#[fg=#c5cae9,bg=#304ffe] #I #W#F "
+
+# active window tab:
+set -g window-status-current-format "#[fg=#ffffff,bg=#1a237e,bold] #I #W#F "
+
+# ==== Prompt/Message Bar =====================================================
+
+set -g message-style fg=#ffffff,bg=#304ffe
