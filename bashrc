@@ -113,13 +113,8 @@ if [[ "$HOSTNAME" == "elitebook" ]]; then
     alias malson="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_on.sh"
 fi
 alias mv='mv --verbose'
-if [[ "$HOSTNAME" == "elitebook" ]]; then
-    alias ms="/usr/local/bin/unison elitebook"
-    alias msb="/usr/local/bin/unison elitebook -batch"
-    alias my-sync="/usr/local/bin/unison elitebook"
-elif [[ "$HOSTNAME" == "rpi-01" ]]; then
-    alias my-sync="bash $CODE_ROOT/bash-scripts/unison_my_sync_rpi.sh"
-fi
+alias ms="/usr/local/bin/unison $HOSTNAME"
+alias msb="/usr/local/bin/unison $HOSTNAME -batch"
 alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
 alias refresh-hosts="ssh-keygen -R 10.0.1.11 && ssh-keygen -R 10.0.1.12 && ssh-keygen -R 10.0.2.21 && ssh-keygen -R 10.0.2.31"
