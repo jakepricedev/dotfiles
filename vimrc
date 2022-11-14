@@ -73,10 +73,10 @@ if has('nvim') || has('termguicolors')
 endif
 
 " Set theme:
-colorscheme tomorrow
+colorscheme tomorrow_night_blue
 
 " Make default theme readable:
-set background=light
+set background=dark
 
 " ==== Functionality ==========================================================
 
