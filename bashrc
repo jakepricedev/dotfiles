@@ -105,6 +105,7 @@ alias cameras='bash $CODE_ROOT/bash-scripts/camera_mosaic.sh'
 alias cp='cp --verbose'
 alias code="cd $CODE_ROOT"
 alias edit="tmux split-window -h $EDITOR $@"
+alias ghi="bash $CODE_ROOT/bash-scripts/github_issues_table.sh"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias ll="ls -l"
 alias ls="ls --color=always --group-directories-first"
