@@ -25,3 +25,9 @@ ln -s $HOME/<path-to-repo>/dotfiles/vimrc $HOME/.vimrc
 ln -s $HOME/<path-to-repo>/dotfiles/tmux.conf $HOME/.tmux.conf
 ```
 
+## Private Functionality
+
+There may be some things such as work specific code, or other functionality you just don't want to commit to source control for whatever reason. A file called `.custom` is sourced to allow you to keep some stuff private.
+
+Create the `.custom` file and copy or symlink it into `$HOME`.
+
