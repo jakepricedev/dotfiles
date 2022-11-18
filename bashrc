@@ -101,7 +101,6 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 # ++++ Aliases ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 alias bat="bat --theme ansi"
-alias cameras='bash $CODE_ROOT/bash-scripts/camera_mosaic.sh'
 alias cp='cp --verbose'
 alias code="cd $CODE_ROOT"
 alias edit="tmux split-window -h $EDITOR $@"
@@ -117,11 +116,9 @@ alias ms="/usr/local/bin/unison $HOSTNAME"
 alias msb="/usr/local/bin/unison $HOSTNAME -batch"
 alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
-alias refresh-hosts="ssh-keygen -R 10.0.1.11 && ssh-keygen -R 10.0.1.12 && ssh-keygen -R 10.0.2.21 && ssh-keygen -R 10.0.2.31"
 alias rm='rm --verbose'
 alias rp="realpath"
 alias src="source $HOME/.bashrc"
-alias tf="terraform"
 alias vim=$EDITOR
 
 # Generate password:
