@@ -105,6 +105,7 @@ alias cp='cp --verbose'
 alias code="cd $CODE_ROOT"
 alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
+alias log="cd $DOCS_ROOT/log/content"
 alias ll="ls -l"
 alias ls="ls --color=always --group-directories-first"
 if [[ "$HOSTNAME" == "elitebook" ]]; then
