@@ -14,7 +14,7 @@ fi
 # ++++ What OS/Distro? ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^ID" | sed --regexp-extended 's/ID=//')
+    export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^\bID\b" | sed --regexp-extended 's/ID=//')
 fi
 
 # ++++ Path +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -79,7 +79,7 @@ fi
 if [[ "$DISTRO_IS" == "fedora" ]]; then
     export VISUAL=vimx
     export EDITOR=$VISUAL
-elif [[ "$DISTRO" == "Ubuntu" ]]; then
+elif [[ "$DISTRO_IS" == "ubuntu" ]]; then
     export VISUAL=vim
     export EDITOR=$VISUAL
 elif [[ "$DISTRO_IS" == "debian" ]]; then
