@@ -7,12 +7,15 @@ parse_git_branch() {
 
 # Set prompt:
 FEDORA_COLOUR="\e[1m\e[38;5;75m"
+UBUNTU_COLOUR="\e[1m\e[38;5;202m"
 DEBIAN_COLOUR="\e[1m\e[38;5;198m"
 MACOS_COLOUR="\e[1m\e[38;5;208m"
 TERMUX_COLOUR="\e[1m\e[92m"
 
 if [[ "$DISTRO_IS" == "fedora" ]]; then
     export PS1="\[$FEDORA_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
+elif [[ "$DISTRO" == "Ubuntu" ]]; then
+    export PS1="\[$UBUNTU_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
 elif [[ "$DISTRO_IS" == "debian" ]]; then
     export PS1="\[$DEBIAN_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
 elif [[ "$OSTYPE" == "darwin"* ]]; then
