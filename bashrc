@@ -76,11 +76,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Set editor:
-if [[ "$DISTRO_IS" == "debian" ]]; then
+if [[ "$DISTRO_IS" == "fedora" ]]; then
+    export VISUAL=vimx
+    export EDITOR=$VISUAL
+elif [[ "$DISTRO" == "Ubuntu" ]]; then
     export VISUAL=vim
     export EDITOR=$VISUAL
-elif [[ "$DISTRO_IS" == "fedora" ]]; then
-    export VISUAL=vimx
+elif [[ "$DISTRO_IS" == "debian" ]]; then
+    export VISUAL=vim
     export EDITOR=$VISUAL
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export VISUAL="vim"
@@ -102,7 +105,6 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 
 alias bat="bat --theme ansi"
 alias cp='cp --verbose'
-alias code="cd $CODE_ROOT"
 alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias log="cd $DOCS_ROOT/log/content"
