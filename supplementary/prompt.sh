@@ -7,7 +7,7 @@ parse_git_branch() {
 
 # Set prompt:
 FEDORA_COLOUR="\e[1m\e[38;5;75m"
-UBUNTU_COLOUR="\e[1m\e[38;5;202m"
+UBUNTU_COLOUR="\e[1m\e[38;5;90m"
 DEBIAN_COLOUR="\e[1m\e[38;5;198m"
 MACOS_COLOUR="\e[1m\e[38;5;208m"
 TERMUX_COLOUR="\e[1m\e[92m"
