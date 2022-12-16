@@ -129,7 +129,7 @@ alias genpwd="tr --delete --complement 'A-Za-z0-9' </dev/urandom | head --bytes 
 
 # ++++ Session "Intro" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-source $CODE_ROOT/dotfiles/supplementary/session_intro.sh
+[[ $- == *i* ]] && source $CODE_ROOT/dotfiles/supplementary/session_intro.sh
 
 # ++++ Prompt +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
