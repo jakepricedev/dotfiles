@@ -39,9 +39,9 @@ source $HOME/.docs_root
 set -o ignoreeof
 
 # Adjust autocompletion behavior:
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
-bind '"\e[Z":menu-complete-backward' # shift-tab
+[[ $- == *i* ]] && bind 'set show-all-if-ambiguous on'
+[[ $- == *i* ]] && bind 'TAB:menu-complete'
+[[ $- == *i* ]] && bind '"\e[Z":menu-complete-backward' # shift-tab
 
 # MacOS specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
