@@ -6,14 +6,16 @@ parse_git_branch() {
 }
 
 # Set prompt:
+SERVER_COLOUR="\e[1m\e[38;5;9m"
 FEDORA_COLOUR="\e[1m\e[38;5;75m"
 UBUNTU_COLOUR="\e[1m\e[38;5;90m"
 DEBIAN_COLOUR="\e[1m\e[38;5;198m"
 MACOS_COLOUR="\e[1m\e[38;5;208m"
 TERMUX_COLOUR="\e[1m\e[92m"
-SERVER_COLOUR="\e[1m\e[38;5;9m"
 
-if [[ "$DISTRO_IS" == "fedora" ]]; then
+if [[ "$IS_A_SERVER" == 1 ]]; then
+    export PS1="\[$SERVER_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
+elif [[ "$DISTRO_IS" == "fedora" ]]; then
     export PS1="\[$FEDORA_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
 elif [[ "$DISTRO" == "Ubuntu" ]]; then
     export PS1="\[$UBUNTU_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
@@ -23,7 +25,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export PS1="\[$MACOS_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
 elif [[ "$OSTYPE" == "linux-android" ]]; then
     export PS1="\[$TERMUX_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
-elif [[ "$IS_A_SERVER" == 1 ]]; then
-    export PS1="\[$SERVER_COLOUR\]\u@\h [ \t ] \w\e[0m\$(parse_git_branch)\n$ "
 fi
 
