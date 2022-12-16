@@ -139,5 +139,7 @@ source $CODE_ROOT/dotfiles/supplementary/prompt.sh
 
 source $HOME/.custom
 source $CODE_ROOT/dotfiles/supplementary/fzf.sh
-source $CODE_ROOT/log-cli/.log-cli-complete.bash
+if [[ "$IS_A_SERVER" == 0 ]]; then
+    source $CODE_ROOT/log-cli/.log-cli-complete.bash
+fi
 
