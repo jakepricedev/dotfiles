@@ -118,8 +118,8 @@ if [[ "$HOSTNAME" == "elitebook" ]]; then
     alias malson="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_on.sh"
 fi
 alias mv='mv --verbose'
-alias ms="/usr/local/bin/unison $HOSTNAME"
-alias msb="/usr/local/bin/unison $HOSTNAME -batch"
+alias ms="docker run --rm --env UNISONLOCALHOSTNAME=$HOSTNAME --volume /etc/timezone:/etc/timezone:ro --volume /etc/localtime:/etc/localtime:ro --volume ~/.unison/$HOSTNAME.prf:/home/unison/.unison/$HOSTNAME.prf --volume ~/.unison:/home/unison/.unison  --volume ~/.ssh:/home/unison/.ssh --volume ~/my/:/home/unison/my/ --volume /tmp/.unison_sync_$HOSTNAME.log:/tmp/.unison_sync_$HOSTNAME.log --interactive --tty jakepricedev/docker-unison:2.52.1-r0 $HOSTNAME"
+alias msb="docker run --rm --env UNISONLOCALHOSTNAME=$HOSTNAME --volume /etc/timezone:/etc/timezone:ro --volume /etc/localtime:/etc/localtime:ro --volume ~/.unison/$HOSTNAME.prf:/home/unison/.unison/$HOSTNAME.prf --volume ~/.unison:/home/unison/.unison  --volume ~/.ssh:/home/unison/.ssh --volume ~/my/:/home/unison/my/ --volume /tmp/.unison_sync_$HOSTNAME.log:/tmp/.unison_sync_$HOSTNAME.log --interactive --tty jakepricedev/docker-unison:2.52.1-r0 -batch $HOSTNAME"
 alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
 alias rm='rm --verbose'
