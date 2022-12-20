@@ -24,10 +24,7 @@ export PATH=$HOME/.local/bin:$PATH
 # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 source $HOME/.code_root
-if [[ "$IS_A_SERVER" == 0 ]]; then
-    source $HOME/.docs_root
-fi
-
+source $HOME/.docs_root
 
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
