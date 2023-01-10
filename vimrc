@@ -28,6 +28,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'maralla/completor.vim'
+Plug 'markonm/traces.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
