@@ -20,18 +20,17 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim'
-Plug 'ferreum/completor-tmux'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'maralla/completor.vim'
 Plug 'markonm/traces.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " ==== Visual =================================================================
@@ -126,6 +125,9 @@ set incsearch
 
 " Stop auto-indenting comments:
 set indentkeys-=0#
+
+" Add keyword delimiters:
+set iskeyword+=-
 
 " ==== Remaps =================================================================
 
