@@ -55,6 +55,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
     export PATH="/Users/jprice/Library/Python/3.10/bin:$PATH"
 
+    export HOMEBREW_NO_AUTO_UPDATE=1
     HOMEBREW_PREFIX="$(brew --prefix)"
     
     # Enable bash completion:
