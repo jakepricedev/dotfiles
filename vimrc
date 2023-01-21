@@ -18,21 +18,23 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " ==== Plugins ================================================================
 
 call plug#begin('~/.vim/plugged')
+" Plugins that shouldn't be installed on my servers:
+if $IS_A_SERVER == 0
+    Plug 'chrisbra/csv.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'wellle/tmux-complete.vim'
+endif
 Plug 'airblade/vim-gitgutter'
-Plug 'chrisbra/csv.vim'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'markonm/traces.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'wellle/tmux-complete.vim'
 call plug#end()
 
 " ==== Visual =================================================================
