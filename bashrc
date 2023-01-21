@@ -45,6 +45,9 @@ set -o ignoreeof
 [[ $- == *i* ]] && bind 'TAB:menu-complete'
 [[ $- == *i* ]] && bind '"\e[Z":menu-complete-backward' # shift-tab
 
+# Source AWS command completion:
+complete -C "/usr/local/bin/aws_completer" aws
+
 # MacOS specifics:
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
