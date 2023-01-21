@@ -35,6 +35,7 @@ Plug 'markonm/traces.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " ==== Visual =================================================================
