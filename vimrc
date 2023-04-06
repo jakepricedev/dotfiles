@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
 if $IS_A_SERVER == 0
     Plug 'chrisbra/csv.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'mattn/emmet-vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'wellle/tmux-complete.vim'
 endif
@@ -32,7 +33,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'markonm/traces.vim'
-Plug 'mattn/emmet-vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
