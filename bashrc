@@ -83,7 +83,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Set editor:
-if [[ "$DISTRO_IS" == "fedora" ]]; then
+if [[ "$IS_A_SERVER" == 1 ]]; then
+    export VISUAL=vim
+    export EDITOR=$VISUAL
+elif [[ "$DISTRO_IS" == "fedora" ]]; then
     export VISUAL=vimx
     export EDITOR=$VISUAL
 elif [[ "$DISTRO_IS" == "ubuntu" ]]; then
