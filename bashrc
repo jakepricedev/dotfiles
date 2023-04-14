@@ -109,7 +109,7 @@ HISTFILESIZE=10000000
 HISTTIMEFORMAT="%Y-%m-%d %T "
 
 # Atuin for bash history:
-if [[ "$IS_A_SERVER" == 0 ]]; then
+if [[ "$HOSTNAME" == "elitebook" ]]; then
     [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
     eval "$(atuin init bash)"
 fi
