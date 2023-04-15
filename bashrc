@@ -108,12 +108,6 @@ HISTSIZE=100000
 HISTFILESIZE=10000000
 HISTTIMEFORMAT="%Y-%m-%d %T "
 
-# Atuin for bash history:
-if [[ "$HOSTNAME" == "elitebook" ]]; then
-    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-    eval "$(atuin init bash)"
-fi
-
 # Change ls directory colour:
 LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 
@@ -162,5 +156,17 @@ source $HOME/.custom
 source $CODE_ROOT/dotfiles/supplementary/fzf.sh
 if [[ "$IS_A_SERVER" == 0 ]]; then
     source $CODE_ROOT/log-cli/.log-cli-complete.bash
+fi
+
+# Atuin for bash history:
+if [[ "$HOSTNAME" == "elitebook" ]]; then
+    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+    eval "$(atuin init bash --disable-up-arrow)"
+
+    # Disable fzf's default binding of ctrl-r:
+    export FZF_DEFAULT_OPTS='--bind "ctrl-r:ignore"'
+
+    # bind atuin to ctrl-r:
+    bind -x '"\C-r": __atuin_history'
 fi
 
