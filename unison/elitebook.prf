@@ -1,0 +1,35 @@
+# Sync roots:
+root=/home/jprice/my
+root=ssh://admin@host-01//srv/data-01/my
+
+# Sync options:
+sshargs=-oIdentityFile=/home/jprice/.ssh/host-01
+
+# Sync paths:
+path=backup
+path=files
+
+# Log options:
+log=true
+logfile=/home/jprice/.unison_sync_elitebook.log
+
+# Ignore:
+ignore = Name .DS_Store
+ignore = Path files/code/ppn/docker/compose/core/samba/data/cache
+ignore = Path files/code/ppn/docker/compose/core/samba/data/lib
+ignore = Path files/code/ppn/docker/compose/dnsmasq/dnsmasq.leases
+ignore = Path files/code/ppn/docker/compose/monitoring/grafana/loki
+ignore = Path files/code/ppn/docker/compose/monitoring/prometheus/prometheus/data
+ignore = Path files/code/ppn/docker/compose/monitoring/uptime-kuma/uptime-kuma
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/reverseproxy-01/data/caddy/locks
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/reverseproxy-01/data/caddy/ocsp
+ignore = Path files/code/ppn/docker/compose/services/invidious/invidious_postgresdata/pg_stat_tmp
+ignore = Path files/code/ppn/docker/compose/services/miniflux/database
+ignore = Path files/code/ppn/docker/compose/services/speedtest-tracker/config
+ignore = Path files/code/ppn/docker/compose/services/speedtest/data/
+ignore = Path files/code/ppn/docker/compose/services/typesense/data
+ignore = Path files/code/ppn/docker/compose/services/wallabag/wallabag/data/site-credentials-secret-key.txt
+ignore = Path files/documents/bible/public
+ignore = Path files/documents/log/public
+ignore = Path files/media/audio/podcasts/library
+ignore = Path files/media/photos/_files/cache
