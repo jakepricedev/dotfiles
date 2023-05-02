@@ -1,0 +1,91 @@
+# ****************************************************************************
+# Espanso: Personal Log Shortcuts
+# ****************************************************************************
+
+global_vars:
+
+  - name: log_entry_id
+    type: date
+    params:
+      format: "%Y%m%d%H%M%S"
+
+  - name: uuid
+    type: shell
+    params:
+      cmd: echo $(uuidgen) | awk '{print tolower($0)}'
+      shell: bash
+
+  - name: log_entry_timestamp_full
+    type: date
+    params:
+      format: "%Y-%m-%d %H:%M:%S"
+
+  - name: log_entry_timestamp
+    type: date
+    params:
+      format: "%Y-%m-%d %H:%M"
+
+  - name: log_entry_date
+    type: date
+    params:
+      format: "%Y-%m-%d"
+
+  - name: log_calendar_date
+    type: date
+    params:
+      format: "%Y-%m-%d %a"
+
+matches:
+  # Log - Entry Frontmatter:
+  - trigger: "!fm"
+    replace: |
+      ---
+      id: {{log_entry_id}}
+      uuid: {{uuid}}
+      title: 
+      date: {{log_entry_timestamp_full}}
+      modified: {{log_entry_timestamp_full}}
+      types: 
+      link: 
+      pinned: false
+      tags: []
+      private: true
+      draft: false
+      ---
+      
+      $|$
+
+  # Log - Inbox Entry:
+  - trigger: "!inbox"
+    replace: |
+      ---
+
+      id: {{log_entry_id}} date: {{log_entry_timestamp_full}}
+
+      $|$
+
+  # Log - Table of Contents:
+  - trigger: "!toc"
+    replace: |
+      \{\{<toc>\}\}
+
+  # Log - Entry Admonition:
+  - trigger: "!adm"
+    replace: |
+      \{\{<admonition $|$>\}\}
+      
+      \{\{</admonition>\}\}
+
+  # Log - Embed HTML:
+  - trigger: "!embed"
+    replace: |
+      \{\{<embed_html file="/attachments/$|$">\}\}
+
+  # Dates
+  - trigger: "!date"
+    replace: "{{log_entry_date}}"
+  - trigger: "!fulldate"
+    replace: "{{log_entry_timestamp_full}}"
+  - trigger: "!caldate"
+    replace: "{{log_calendar_date}}"
+
