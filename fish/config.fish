@@ -30,7 +30,10 @@ if status is-interactive
 
     # ++++ Setup atuin ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    atuin init fish | source
+    atuin init fish --disable-up-arrow | source
+
+    # Bind atuin additionally to Ctrl + K:
+    bind \ck _atuin_search
 
     # ++++ Aliases ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
