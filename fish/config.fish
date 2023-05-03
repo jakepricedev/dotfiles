@@ -6,7 +6,8 @@ if status is-interactive
     set -x EDITOR $VISUAL
     
     # Make yank work in vim:
-    set -g fish_use_terminfo yes
+    bind yy fish_clipboard_copy
+    bind Y fish_clipboard_copy
 
     # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
