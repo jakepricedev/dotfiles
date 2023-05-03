@@ -45,8 +45,8 @@ set guioptions-=m
 set guioptions-=T
 
 " GVim Font:
-if has ('gui')
-    set guifont=Ubuntu\ Mono\ 14
+if has ('gui_macvim')
+    set guifont=UbuntuMono-Regular:h16
 endif
 
 " Status line:
