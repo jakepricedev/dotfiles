@@ -9,9 +9,9 @@ shell:
 window:
   padding:
     x: 10
-    y: 10
+    y: 30
   dynamic_title: true
-  gtk_theme_variant: dark
+  decorations: transparent
 
 font:
   normal: 
