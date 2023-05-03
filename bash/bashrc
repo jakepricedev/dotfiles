@@ -166,7 +166,8 @@ if [[ "$HOSTNAME" == "elitebook" ]]; then
     # Disable fzf's default binding of ctrl-r:
     export FZF_DEFAULT_OPTS='--bind "ctrl-r:ignore"'
 
-    # bind atuin to ctrl-r:
+    # bind atuin to additional key combos:
     bind -x '"\C-r": __atuin_history'
+    bind -x '"\C-k": __atuin_history'
 fi
 
