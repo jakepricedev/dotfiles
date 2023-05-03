@@ -9,14 +9,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# ==== Custom =================================================================
-
-# ++++ What OS/Distro? ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^\bID\b" | sed --regexp-extended 's/ID=//')
-fi
-
 # ++++ Path +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 export PATH=$HOME/.local/bin:$PATH
@@ -24,10 +16,7 @@ export PATH=$HOME/.local/bin:$PATH
 # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 source $HOME/.code_root
-if [[ "$IS_A_SERVER" == 0 ]]; then
-    source $HOME/.docs_root
-    source /home/jprice/.config/broot/launcher/bash/br
-fi
+source $HOME/.docs_root
 
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -49,59 +38,33 @@ set -o ignoreeof
 # Source AWS command completion:
 complete -C "/usr/local/bin/aws_completer" aws
 
-# MacOS specifics:
-if [[ "$OSTYPE" == "darwin"* ]]; then
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
-    export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH=/usr/local/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
 
-    export PATH=/usr/local/bin:$PATH
-    export PATH="/opt/homebrew/bin:$PATH"
-    export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-    export PATH="/Users/jprice/Library/Python/3.10/bin:$PATH"
+export HOMEBREW_NO_AUTO_UPDATE=1
+HOMEBREW_PREFIX="$(brew --prefix)"
 
-    export HOMEBREW_NO_AUTO_UPDATE=1
-    HOMEBREW_PREFIX="$(brew --prefix)"
-    
-    # Enable bash completion:
-    if type brew &>/dev/null; then
-      if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-      else
-        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-          [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-        done
-      fi
-    fi
-
-    # Update PATH to use Homebrew installed tools:
-    export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
-    export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
-    export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
-
-    # Update PATH to include Python packages:
-    export PATH="/Users/$USER/Library/Python/3.9/bin:$PATH"
+# Enable bash completion:
+if type brew &>/dev/null; then
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+    done
+  fi
 fi
+
+# Update PATH to use Homebrew installed tools:
+export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
 
 # Set editor:
-if [[ "$IS_A_SERVER" == 1 ]]; then
-    export VISUAL=vim
-    export EDITOR=$VISUAL
-elif [[ "$DISTRO_IS" == "fedora" ]]; then
-    export VISUAL=vimx
-    export EDITOR=$VISUAL
-elif [[ "$DISTRO_IS" == "ubuntu" ]]; then
-    export VISUAL=vim
-    export EDITOR=$VISUAL
-elif [[ "$DISTRO_IS" == "debian" ]]; then
-    export VISUAL=vim
-    export EDITOR=$VISUAL
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export VISUAL="vim"
-    export EDITOR=$VISUAL
-elif [[ "$OSTYPE" == "linux-android" ]]; then
-    export VISUAL=vim
-    export EDITOR=$VISUAL
-fi
+export VISUAL="vim"
+export EDITOR=$VISUAL
 
 # Bash history:
 HISTSIZE=100000
@@ -120,18 +83,7 @@ alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
 alias log="cd $DOCS_ROOT/log/content"
 alias ll="ls -l"
 alias ls="ls --color=always --group-directories-first"
-if [[ "$HOSTNAME" == "elitebook" ]]; then
-    alias malsoff="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_off.sh"
-    alias malson="bash $CODE_ROOT/bash-scripts/monitors_arrange_laptop_screen_on.sh"
-fi
 alias mv='mv --verbose'
-if [[ "$HOSTNAME" == "elitebook" ]]; then
-    alias ms="docker run --rm --user 1000:1000 --env UNISONLOCALHOSTNAME=$HOSTNAME --volume /etc/timezone:/etc/timezone:ro --volume /etc/localtime:/etc/localtime:ro --volume /etc/passwd:/etc/passwd --volume $HOME/.unison:/home/$(whoami)/.unison --volume $HOME/.unison_sync_$HOSTNAME.log:/home/$(whoami)/.unison_sync_$HOSTNAME.log --volume $HOME/.ssh/host-01:/home/$(whoami)/.ssh/host-01 --volume $HOME/.ssh/known_hosts:/home/$(whoami)/.ssh/known_hosts --volume $HOME/my:/home/$(whoami)/my --interactive --tty jakepricedev/docker-unison:2.52.1-r0 $HOSTNAME"
-    alias msb="docker run --rm --user 1000:1000 --env UNISONLOCALHOSTNAME=$HOSTNAME --volume /etc/timezone:/etc/timezone:ro --volume /etc/localtime:/etc/localtime:ro --volume /etc/passwd:/etc/passwd --volume $HOME/.unison:/home/$(whoami)/.unison --volume $HOME/.unison_sync_$HOSTNAME.log:/home/$(whoami)/.unison_sync_$HOSTNAME.log --volume $HOME/.ssh/host-01:/home/$(whoami)/.ssh/host-01 --volume $HOME/.ssh/known_hosts:/home/$(whoami)/.ssh/known_hosts --volume $HOME/my:/home/$(whoami)/my --interactive jakepricedev/docker-unison:2.52.1-r0 $HOSTNAME -batch"
-elif [[ "$IS_A_SERVER" == 1 ]]; then
-    alias ms="docker compose --project-directory $HOME/ppn/docker/compose/core/unison run --rm unison-$HOSTNAME $HOSTNAME"
-    alias msb="docker compose --project-directory $HOME/ppn/docker/compose/core/unison run --rm unison-$HOSTNAME $HOSTNAME -batch"
-fi
 alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
 alias rm='rm --verbose'
@@ -154,19 +106,16 @@ source $CODE_ROOT/dotfiles/bash/prompt.sh
 
 source $HOME/.custom
 source $CODE_ROOT/dotfiles/bash/fzf.sh
-if [[ "$IS_A_SERVER" == 0 ]]; then
-    source $CODE_ROOT/log-cli/.log-cli-complete.bash
-fi
+source $CODE_ROOT/log-cli/.log-cli-complete.bash
 
 # Atuin for bash history:
-if [[ "$HOSTNAME" == "elitebook" ]]; then
-    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-    eval "$(atuin init bash --disable-up-arrow)"
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash --disable-up-arrow)"
 
-    # Disable fzf's default binding of ctrl-r:
-    export FZF_DEFAULT_OPTS='--bind "ctrl-r:ignore"'
+# Disable fzf's default binding of ctrl-r:
+export FZF_DEFAULT_OPTS='--bind "ctrl-r:ignore"'
 
-    # bind atuin to ctrl-r:
-    bind -x '"\C-r": __atuin_history'
-fi
+# bind atuin to additional key combos:
+bind -x '"\C-r": __atuin_history'
+bind -x '"\C-k": __atuin_history'
 
