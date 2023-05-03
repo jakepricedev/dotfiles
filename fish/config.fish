@@ -4,6 +4,9 @@ if status is-interactive
 
     set -x VISUAL vimx
     set -x EDITOR $VISUAL
+    
+    # Make yank work in vim:
+    set -g fish_use_terminfo yes
 
     # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
