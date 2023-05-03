@@ -144,16 +144,16 @@ alias genpwd="tr --delete --complement 'A-Za-z0-9' </dev/urandom | head --bytes 
 
 # ++++ Session "Intro" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-[[ $- == *i* ]] && source $CODE_ROOT/dotfiles/supplementary/session_intro.sh
+[[ $- == *i* ]] && source $CODE_ROOT/dotfiles/bash/session_intro.sh
 
 # ++++ Prompt +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-source $CODE_ROOT/dotfiles/supplementary/prompt.sh
+source $CODE_ROOT/dotfiles/bash/prompt.sh
 
 # ++++ Other ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 source $HOME/.custom
-source $CODE_ROOT/dotfiles/supplementary/fzf.sh
+source $CODE_ROOT/dotfiles/bash/fzf.sh
 if [[ "$IS_A_SERVER" == 0 ]]; then
     source $CODE_ROOT/log-cli/.log-cli-complete.bash
 fi
