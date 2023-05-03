@@ -2,8 +2,20 @@ if status is-interactive
 
     # ++++ Defaults +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    set -x VISUAL vimx
+    set -x VISUAL vim
     set -x EDITOR $VISUAL
+
+    # ++++ Homebrew +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    set -x PATH /usr/local/bin $PATH
+    set -x PATH /opt/homebrew/bin $PATH
+    set -x HOMEBREW_NO_AUTO_UPDATE 1
+    set -x HOMEBREW_PREFIX (brew --prefix)
+
+    # Update PATH to use Homebrew installed tools:
+    set -x PATH $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin $PATH
+    set -x PATH $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin $PATH
+    set -x PATH $HOMEBREW_PREFIX/opt/grep/libexec/gnubin $PATH
 
     # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
