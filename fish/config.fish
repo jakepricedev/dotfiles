@@ -4,10 +4,6 @@ if status is-interactive
 
     set -x VISUAL vimx
     set -x EDITOR $VISUAL
-    
-    # Make yank work in vim:
-    bind yy fish_clipboard_copy
-    bind Y fish_clipboard_copy
 
     # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
