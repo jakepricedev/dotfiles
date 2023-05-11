@@ -12,6 +12,7 @@ window:
     y: 30
   dynamic_title: true
   decorations: transparent
+  option_as_alt: Both
 
 font:
   normal: 
