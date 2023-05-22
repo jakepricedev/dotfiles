@@ -40,17 +40,19 @@ matches:
   - trigger: "!fm"
     replace: |
       ---
-      id: {{log_entry_id}}
-      uuid: {{uuid}}
-      title: 
+      alias: 
+      category:
+      classification: private
       date: {{log_entry_timestamp_full}}
-      modified: {{log_entry_timestamp_full}}
-      types: 
+      date_modified: 
+      id: {{log_entry_id}}
       link: 
       pinned: false
-      tags: []
-      private: true
-      draft: false
+      series: 
+      tags: 
+      title: 
+      type: 
+      uuid: {{uuid}}
       ---
       
       $|$
@@ -88,4 +90,5 @@ matches:
     replace: "{{log_entry_timestamp_full}}"
   - trigger: "!caldate"
     replace: "{{log_calendar_date}}"
+
 
