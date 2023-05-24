@@ -171,5 +171,5 @@ endfunction
 " quickly gf on filenames to open them:
 command! Log vnew |
     \ :setlocal nobuflisted buftype=nofile bufhidden=delete noswapfile |
-    \ r ! grep "title:" $DOCS_ROOT/log/content/*.md | sed 's/:title:/ /' | sort
+    \ r ! grep "title:" $DOCS_ROOT/SIFT/content/*.md | sed 's/:title:/ /' | sort
 
