@@ -40,18 +40,18 @@ matches:
   - trigger: "!fm"
     replace: |
       ---
-      alias: 
-      category:
+      alias:  
+      category: 
       classification: private
       date: {{log_entry_timestamp_full}}
       date_modified: 
       id: {{log_entry_id}}
-      link: 
+      link:  
       pinned: false
-      series: 
-      tags: 
-      title: 
-      type: 
+      series:  
+      tags: []
+      title:  
+      type:  
       uuid: {{uuid}}
       ---
       
