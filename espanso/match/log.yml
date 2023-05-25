@@ -44,7 +44,7 @@ matches:
       category: 
       classification: private
       date: {{log_entry_timestamp_full}}
-      date_modified: 
+      date_modified: {{log_entry_timestamp_full}}
       id: {{log_entry_id}}
       link: 
       pinned: false
