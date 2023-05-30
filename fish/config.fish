@@ -2,6 +2,11 @@ if status is-interactive
 
     # ++++ Defaults +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+    function fish_prompt
+        set_color --bold FF9100; echo -n (whoami)@(hostname) [ (date '+%F %H:%M:%S') ] (prompt_pwd --full-length-dirs 999); set_color normal; set_color ffffff; echo (fish_git_prompt)
+        set_color normal; echo "\$ "
+    end
+
     set -x VISUAL vim
     set -x EDITOR $VISUAL
     
