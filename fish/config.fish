@@ -26,7 +26,7 @@ if status is-interactive
 
     source $HOME/.code_root
     source $HOME/.docs_root
-    source $CODE_ROOT/log-cli/.log-cli-complete.fish
+    source $HOME/.custom
 
     # ++++ Keybindings ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
