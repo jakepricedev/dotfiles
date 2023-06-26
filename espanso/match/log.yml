@@ -47,6 +47,7 @@ matches:
       date_modified: {{log_entry_timestamp_full}}
       id: {{log_entry_id}}
       link: 
+      link_archive: 
       pinned: false
       series: 
       tags: []
