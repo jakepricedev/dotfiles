@@ -2,6 +2,8 @@ if status is-interactive
 
     # ++++ Defaults +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+    set -gx HOSTNAME (hostname)
+
     function fish_prompt
         set_color --bold 5fafff; echo -n (whoami)@(hostname) [ (date '+%F %H:%M:%S') ] (prompt_pwd --full-length-dirs 999); set_color normal; set_color ffffff; echo (fish_git_prompt)
         set_color normal; echo "\$ "
