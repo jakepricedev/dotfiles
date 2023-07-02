@@ -11,7 +11,7 @@ window:
     x: 10
     y: 10
   dynamic_title: true
-  gtk_theme_variant: dark
+  decorations_theme_variant: Dark
 
 font:
   normal: 
