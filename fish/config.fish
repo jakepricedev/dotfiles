@@ -11,6 +11,7 @@ if status is-interactive
 
     set -x VISUAL vimx
     set -x EDITOR $VISUAL
+    set -x SIFT_PATH ~/my/files/documents/SIFT
 
     # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
