@@ -15,6 +15,7 @@ logfile=/home/jprice/.unison_sync_elitebook.log
 
 # Ignore:
 ignore = Name .DS_Store
+ignore = Path files/code/dotfiles
 ignore = Path files/code/ppn/docker/compose/core/samba/data/cache
 ignore = Path files/code/ppn/docker/compose/core/samba/data/lib
 ignore = Path files/code/ppn/docker/compose/dnsmasq/dnsmasq.leases
