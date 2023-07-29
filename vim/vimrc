@@ -27,6 +27,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'ledger/vim-ledger'
 Plug 'markonm/traces.vim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -147,6 +148,10 @@ if has ('gui')
 endif
 
 " ==== Extension Settings =====================================================
+
+" Fix for vim-ledger errors:
+" https://github.com/ledger/vim-ledger/issues/143#issuecomment-1562279948
+let g:ledger_is_hledger=v:true
 
 " vim-markdown settings:
 let g:vim_markdown_folding_disabled = 1
