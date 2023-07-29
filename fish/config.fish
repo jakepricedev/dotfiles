@@ -50,6 +50,7 @@ if status is-interactive
     alias rp "realpath"
     alias sift "cd $DOCS_ROOT/SIFT/content"
     alias src "source $HOME/.config/fish/config.fish"
+    alias titles "grep --regexp '^title: ' $DOCS_ROOT/SIFT/content/*.md | sed 's/:title:/^/' | column -t -s '^'"
     alias vim $EDITOR
 
 end
