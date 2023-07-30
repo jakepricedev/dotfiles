@@ -49,6 +49,8 @@ if status is-interactive
     alias rm 'rm --verbose'
     alias rp "realpath"
     alias sift "cd $DOCS_ROOT/SIFT/content"
+    alias smartdns_activate "bash $CODE_ROOT/bash-scripts/activate_smartdns.sh"
+    alias smartdns_disable "bash $CODE_ROOT/bash-scripts/disable_smartdns.sh"
     alias src "source $HOME/.config/fish/config.fish"
     alias titles "grep --regexp '^title: ' $DOCS_ROOT/SIFT/content/*.md | sed 's/:title:/^/' | column -t -s '^'"
     alias vim $EDITOR
