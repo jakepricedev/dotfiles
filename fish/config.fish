@@ -17,7 +17,7 @@ if status is-interactive
 
     source $HOME/.code_root
     source $HOME/.docs_root
-    source $CODE_ROOT/log-cli/.log-cli-complete.fish
+    source $DOCS_ROOT/SIFT/cli/sift-completions.fish
 
     # ++++ Keybindings ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -48,11 +48,9 @@ if status is-interactive
     alias python "python3"
     alias rm 'rm --verbose'
     alias rp "realpath"
-    alias sift "cd $DOCS_ROOT/SIFT/content"
     alias smartdns_activate "bash $CODE_ROOT/bash-scripts/activate_smartdns.sh"
     alias smartdns_disable "bash $CODE_ROOT/bash-scripts/disable_smartdns.sh"
     alias src "source $HOME/.config/fish/config.fish"
-    alias titles "grep --regexp '^title: ' $DOCS_ROOT/SIFT/content/*.md | sed 's/:title:/^/' | column -t -s '^'"
     alias vim $EDITOR
 
 end
