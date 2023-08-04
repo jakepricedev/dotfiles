@@ -167,14 +167,27 @@ let g:goyo_height = "100%"
 
 " ==== Custom Commands & Functions ============================================
 
-" Trigger Log todo type state:
-function! LogDone()
+" ++++ SIFT Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+" Function to replace todo type entries with done:
+function! SiftDone()
     %s/types: todo-[a-z0-9]/types: done/g
 endfunction
+command! SiftDone call SiftDone()
 
-" Open a vertical split with a list of all log entries and their titles to
-" quickly gf on filenames to open them:
-command! Log vnew |
-    \ :setlocal nobuflisted buftype=nofile bufhidden=delete noswapfile |
-    \ r ! grep "title:" $DOCS_ROOT/SIFT/content/*.md | sed 's/:title:/ /' | sort
+" Post fzf selection function. This removes anything the tab character and
+" anything after it, which allows me to include frontmatter next to the
+" filenames of SIFT entries:
+function! OpenSelectedFileWithoutTitle(selected) abort
+  " 'selected' contains the selected items from fzf, separated by newline characters
+  let file_line = split(a:selected, "\n")[0]
+  let file_path = substitute(file_line, '\t.*$', '', '')
+  execute 'edit' fnameescape(file_path)
+endfunction
+
+" Search entry titles:
+command! -bang SiftTitles call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^title:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:title:/\t/g" | sort --reverse', 'options': '--delimiter "\t" --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
+
+" Search entry aliases:
+command! -bang SiftAliases call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^alias:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:alias:/\t/g" | sort --reverse', 'options': '--delimiter "\t" --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
 
