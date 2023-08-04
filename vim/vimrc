@@ -191,3 +191,6 @@ command! -bang SiftTitles call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^
 " Search entry aliases:
 command! -bang SiftAliases call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^alias:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:alias:/\t/g" | sort --reverse', 'options': '--delimiter "\t" --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
 
+" Search entry content:
+command! -bang -nargs=* SiftSearch call fzf#vim#grep('rg --glob "*.md" --column --line-number --no-heading --color=always -- '.shellescape(<q-args>), 0, {'options': '--no-hscroll --delimiter : --nth 4.. --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'dir': expand('$HOME/my/files/documents/SIFT/content')}, <bang>0)
+
