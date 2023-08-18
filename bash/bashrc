@@ -11,10 +11,6 @@ fi
 
 # ==== Custom =================================================================
 
-# ++++ What OS/Distro? ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-export DISTRO_IS=$(cat /etc/*-release | grep --regexp="^\bID\b" | sed --regexp-extended 's/ID=//')
-
 # ++++ Path +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 export PATH=$HOME/.local/bin:$PATH
@@ -22,7 +18,6 @@ export PATH=$HOME/.local/bin:$PATH
 # ++++ Source +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 source $HOME/.code_root
-source $HOME/.docs_root
 
 # ++++ Base +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -57,9 +52,6 @@ LS_COLORS=$LS_COLORS:"di=0;94:" ; export LS_COLORS
 
 alias bat="bat --theme ansi"
 alias cp='cp --verbose'
-alias edit="tmux split-window -h $EDITOR $@"
-alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
-alias log="cd $DOCS_ROOT/log/content"
 alias ll="ls -l"
 alias ls="ls --color=always --group-directories-first"
 alias mv='mv --verbose'
@@ -68,9 +60,6 @@ alias rm='rm --verbose'
 alias rp="realpath"
 alias src="source $HOME/.bashrc"
 alias vim=$EDITOR
-
-# Generate password:
-alias genpwd="tr --delete --complement 'A-Za-z0-9' </dev/urandom | head --bytes 64; echo"
 
 # ++++ Session "Intro" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

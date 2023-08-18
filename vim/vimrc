@@ -22,13 +22,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'chrisbra/csv.vim'
 Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'markonm/traces.vim'
-Plug 'mattn/emmet-vim'
-Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -36,17 +33,6 @@ Plug 'wellle/tmux-complete.vim'
 call plug#end()
 
 " ==== Visual =================================================================
-
-" Disable menu bar in GVim:
-set guioptions-=m
-
-" Disable toolbar in GVim:
-set guioptions-=T
-
-" GVim Font:
-if has ('gui')
-    set guifont=Ubuntu\ Mono\ 14
-endif
 
 " Status line:
 set laststatus=2
@@ -153,21 +139,4 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 1
-
-" goyo.vim:
-let g:goyo_width = 80
-let g:goyo_height = "100%"
-
-" ==== Custom Commands & Functions ============================================
-
-" Trigger Log todo type state:
-function! LogDone()
-    %s/types: todo-[a-z0-9]/types: done/g
-endfunction
-
-" Open a vertical split with a list of all log entries and their titles to
-" quickly gf on filenames to open them:
-command! Log vnew |
-    \ :setlocal nobuflisted buftype=nofile bufhidden=delete noswapfile |
-    \ r ! grep "title:" $DOCS_ROOT/SIFT/content/*.md | sed 's/:title:/ /' | sort
 
