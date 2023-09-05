@@ -9,7 +9,8 @@ env:
 window:
   padding:
     x: 10
-    y: 30
+    y: 10
+  dynamic_padding: true
   dynamic_title: true
   decorations: transparent
   option_as_alt: Both
