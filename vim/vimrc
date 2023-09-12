@@ -147,6 +147,9 @@ endif
 
 " ==== Extension Settings =====================================================
 
+" coc.nvim
+let g:coc_node_path = '/opt/homebrew/bin/node'
+
 " vim-markdown settings:
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_fenced_languages = ['bash=sh', 'json', 'python', 'css', 'html', 'ini=dosini']
