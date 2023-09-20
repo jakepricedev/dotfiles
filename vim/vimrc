@@ -30,6 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'ledger/vim-ledger'
 Plug 'markonm/traces.vim'
 Plug 'mattn/emmet-vim'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
