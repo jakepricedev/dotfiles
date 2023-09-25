@@ -41,12 +41,14 @@ matches:
     replace: |
       ---
       alias: 
+      archive_links: []
       category: 
       classification: private
       date: {{log_entry_timestamp_full}}
       date_modified: {{log_entry_timestamp_full}}
       id: {{log_entry_id}}
       link: 
+      local_archive:
       pinned: false
       series: 
       tags: []
