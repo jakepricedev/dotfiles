@@ -66,23 +66,6 @@ matches:
 
       $|$
 
-  # Log - Table of Contents:
-  - trigger: "!toc"
-    replace: |
-      \{\{<toc>\}\}
-
-  # Log - Entry Admonition:
-  - trigger: "!adm"
-    replace: |
-      \{\{<admonition $|$>\}\}
-      
-      \{\{</admonition>\}\}
-
-  # Log - Embed HTML:
-  - trigger: "!embed"
-    replace: |
-      \{\{<embed_html file="/attachments/$|$">\}\}
-
   # Dates
   - trigger: "!date"
     replace: "{{log_entry_date}}"
