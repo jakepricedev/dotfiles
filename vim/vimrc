@@ -186,16 +186,16 @@ function! OpenSelectedFileWithoutTitle(selected) abort
 endfunction
 
 " Search entry titles:
-command! -bang SiftTitles call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^title:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:title:/\t/g" | sort --reverse', 'options': '--multi --delimiter "\t" --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
+command! -bang SiftTitles call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^title:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:title:/\t/g" | sort --reverse', 'options': '--multi --delimiter "\t" --preview "/opt/homebrew/bin/bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
 noremap \st :SiftTitles<CR>
 noremap \st! :SiftTitles!<CR>
 
 " Search entry aliases:
-command! -bang SiftAliases call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^alias:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:alias:/\t/g" | sort --reverse', 'options': '--multi --delimiter "\t" --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
+command! -bang SiftAliases call fzf#run(fzf#wrap({ 'source': 'grep --recursive "^alias:" $HOME/my/files/documents/SIFT/content/*.md | sed "s/:alias:/\t/g" | sort --reverse', 'options': '--multi --delimiter "\t" --preview "/opt/homebrew/bin/bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'sink': function('OpenSelectedFileWithoutTitle') },<bang>0))
 noremap \sa :SiftAliases<CR>
 noremap \sa! :SiftAliases!<CR>
 
 " Search entry content:
-command! -bang -nargs=* SiftContent call fzf#vim#grep('rg --glob "*.md" --column --line-number --no-heading --color=always -- '.shellescape(<q-args>), 0, {'options': '--no-hscroll --delimiter : --nth 4.. --preview "bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'dir': expand('$HOME/my/files/documents/SIFT/content')}, <bang>0)
+command! -bang -nargs=* SiftContent call fzf#vim#grep('rg --glob "*.md" --column --line-number --no-heading --color=always -- '.shellescape(<q-args>), 0, {'options': '--no-hscroll --delimiter : --nth 4.. --preview "/opt/homebrew/bin/bat --italic-text=always --style=header-filename --theme=base16 --wrap=auto --color=always {1}" --preview-window=up:70%', 'dir': expand('$HOME/my/files/documents/SIFT/content')}, <bang>0)
 noremap \sc :SiftContent<CR>
 noremap \sc! :SiftContent!<CR>
