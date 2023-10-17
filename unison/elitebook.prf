@@ -14,6 +14,7 @@ log=true
 logfile=/home/jprice/.unison_sync_elitebook.log
 
 # Ignore:
+ignore = Name *__pycache__*
 ignore = Name .DS_Store
 ignore = Path files/code/dotfiles
 ignore = Path files/code/ppn/docker/compose/core/samba/data/cache
@@ -22,9 +23,15 @@ ignore = Path files/code/ppn/docker/compose/dnsmasq/dnsmasq.leases
 ignore = Path files/code/ppn/docker/compose/monitoring/grafana/loki
 ignore = Path files/code/ppn/docker/compose/monitoring/prometheus/prometheus/data
 ignore = Path files/code/ppn/docker/compose/monitoring/uptime-kuma/uptime-kuma
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/host-01/authelia/config
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/host-01/data/caddy/acme
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/host-01/data/caddy/certificates
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/host-01/data/caddy/locks
+ignore = Path files/code/ppn/docker/compose/reverse-proxies/host-01/data/caddy/ocsp
 ignore = Path files/code/ppn/docker/compose/reverse-proxies/reverseproxy-01/authelia/config
 ignore = Path files/code/ppn/docker/compose/reverse-proxies/reverseproxy-01/data/caddy/locks
 ignore = Path files/code/ppn/docker/compose/reverse-proxies/reverseproxy-01/data/caddy/ocsp
+ignore = Path files/code/ppn/docker/compose/services/code-server/config/data/code-server-ipc.sock
 ignore = Path files/code/ppn/docker/compose/services/invidious/invidious_postgresdata/pg_stat_tmp
 ignore = Path files/code/ppn/docker/compose/services/miniflux/database
 ignore = Path files/code/ppn/docker/compose/services/speedtest-tracker/config
