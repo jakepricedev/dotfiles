@@ -55,11 +55,9 @@ alias bat="bat --theme ansi"
 alias cp='cp --verbose'
 alias edit="tmux split-window -h $EDITOR $@"
 alias inbox="$VISUAL $DOCS_ROOT/log/content/inbox.md +$"
-alias log="cd $DOCS_ROOT/log/content"
 alias ll="ls -l"
 alias ls="ls --color=always --group-directories-first"
 alias mv='mv --verbose'
-alias note="vim $DOCS_ROOT/log/content/inbox.md"
 alias python="python3"
 alias rm='rm --verbose'
 alias rp="realpath"
@@ -81,11 +79,6 @@ source $CODE_ROOT/dotfiles/bash/prompt.sh
 
 source $HOME/.custom
 source $CODE_ROOT/dotfiles/bash/fzf.sh
-source $CODE_ROOT/log-cli/.log-cli-complete.bash
-
-# Atuin for bash history:
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash --disable-up-arrow)"
 
 # Disable fzf's default binding of ctrl-r:
 export FZF_DEFAULT_OPTS='--bind "ctrl-r:ignore"'
