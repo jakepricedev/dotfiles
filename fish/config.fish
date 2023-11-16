@@ -53,6 +53,7 @@ if status is-interactive
     alias mv 'mv --verbose'
     alias python "python3"
     alias rm 'rm --verbose'
+    alias rg "rg --hidden"
     alias rp "realpath"
     alias src "source $HOME/.config/fish/config.fish"
     alias vim $EDITOR
