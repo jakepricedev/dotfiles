@@ -47,6 +47,7 @@ if status is-interactive
     alias mv 'mv --verbose'
     alias python "python3"
     alias rm 'rm --verbose'
+    alias rg "rg --hidden"
     alias rp "realpath"
     alias smartdns_activate "bash $CODE_ROOT/bash-scripts/activate_smartdns.sh"
     alias smartdns_disable "bash $CODE_ROOT/bash-scripts/disable_smartdns.sh"
