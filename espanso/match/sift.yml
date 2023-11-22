@@ -9,12 +9,6 @@ global_vars:
     params:
       format: "%Y%m%d%H%M%S"
 
-  - name: uuid
-    type: shell
-    params:
-      cmd: echo $(uuidgen) | awk '{print tolower($0)}'
-      shell: bash
-
   - name: log_entry_timestamp_full
     type: date
     params:
@@ -40,8 +34,8 @@ matches:
   - trigger: "!fm"
     replace: |
       ---
-      alias: 
-      archive_links: []
+      aliases:
+      archive_links:
       category: 
       classification: private
       date: {{log_entry_timestamp_full}}
@@ -51,10 +45,9 @@ matches:
       local_archive: 
       pinned: false
       series: 
-      tags: []
+      tags:
       title: 
       type: 
-      uuid: {{uuid}}
       ---
       
       $|$
