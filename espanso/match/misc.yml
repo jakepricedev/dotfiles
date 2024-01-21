@@ -15,6 +15,9 @@ matches:
   - trigger: "!key"
     replace: "-i ~/.ssh/"
 
+  - trigger: "!em"
+    replace: "—"
+
   - trigger: "!genpwd"
     replace: "{{output}}"
     vars:

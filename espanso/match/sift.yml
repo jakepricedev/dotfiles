@@ -12,12 +12,12 @@ global_vars:
   - name: log_entry_timestamp_full
     type: date
     params:
-      format: "%Y-%m-%d %H:%M:%S"
+      format: "%Y-%m-%dT%H:%M:%S"
 
   - name: log_entry_timestamp
     type: date
     params:
-      format: "%Y-%m-%d %H:%M"
+      format: "%Y-%m-%dT%H:%M"
 
   - name: log_entry_date
     type: date
@@ -46,7 +46,7 @@ matches:
       pinned: false
       series: 
       tags:
-      title: 
+      title:  
       type: 
       ---
       
