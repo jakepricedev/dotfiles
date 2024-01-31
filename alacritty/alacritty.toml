@@ -1,0 +1,140 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#565575"
+blue = "#bbdaff"
+cyan = "#99ffff"
+green = "#d1f1a9"
+magenta = "#ebbbff"
+red = "#ff9da4"
+white = "#ffffff"
+yellow = "#ffeead"
+
+[colors.cursor]
+cursor = "#c6ff00"
+text = "#002451"
+
+[colors.normal]
+black = "#100e23"
+blue = "#bbdaff"
+cyan = "#99ffff"
+green = "#d1f1a9"
+magenta = "#ebbbff"
+red = "#ff9da4"
+white = "#ffffff"
+yellow = "#ffeead"
+
+[colors.primary]
+background = "#002451"
+foreground = "#ffffff"
+
+[colors.selection]
+background = "#00346e"
+text = "#ffffff"
+
+[cursor.style]
+blinking = "Always"
+shape = "block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Ubuntu Mono"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "K"
+mode = "~Vi|~Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "B"
+mode = "~Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "B"
+mode = "~Search"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "F"
+mode = "~Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "F"
+mode = "~Search"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Plus"
+mods = "Control"
+
+[[mouse.bindings]]
+action = "ReceiveChar"
+mouse = "Right"
+
+[scrolling]
+history = 0
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+program = "/usr/bin/fish"
+
+[window]
+decorations_theme_variant = "Dark"
+dynamic_padding = true
+dynamic_title = true
+
+[window.padding]
+x = 10
+y = 10
