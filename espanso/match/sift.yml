@@ -40,6 +40,7 @@ matches:
       classification: private
       date: {{log_entry_timestamp_full}}
       date_modified: {{log_entry_timestamp_full}}
+      draft: true
       id: {{log_entry_id}}
       link: 
       local_archive: 
