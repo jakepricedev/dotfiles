@@ -36,7 +36,7 @@ background = "#00346e"
 text = "#ffffff"
 
 [cursor.style]
-blinking = "Always"
+blinking = "Never"
 shape = "block"
 
 [env]
