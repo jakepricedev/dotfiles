@@ -43,11 +43,11 @@ if status is-interactive
     # ++++ Aliases ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     alias bat "bat --theme ansi"
+    alias cdsc "cd $DOCS_ROOT/SIFT/content"
     alias cp 'cp --verbose'
     alias edit "tmux split-window -h $EDITOR $argv"
     alias genpwd "tr --delete --complement 'A-Za-z0-9' </dev/urandom | head --bytes 64; echo"
     alias inbox 'vim "+normal G" $DOCS_ROOT/SIFT/content/inbox.md'
-    alias sift "cd $DOCS_ROOT/SIFT/content"
     alias ll "ls -l"
     alias ls "ls --color=always --group-directories-first"
     alias mv 'mv --verbose'
